@@ -1,0 +1,55 @@
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100%;
+  background: rgb(28, 30, 25, 0.5);
+  display: flex;
+  opacity: 0;
+  z-index: -100;
+  transition: all 1s ease-in-out;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    width: 400px;
+    height: 300px;
+    padding: 20px;
+    background-color: #7361ab;
+    z-index: 110 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+    .button_box {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      height: auto;
+
+      > button {
+        cursor: pointer;
+        padding: 10px 30px;
+        font-size: 1em;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: black;
+          color: wheat;
+        }
+      }
+    }
+  }
+}
+
+.open_modal {
+  opacity: 1 !important;
+  z-index: 100 !important;
+
+}

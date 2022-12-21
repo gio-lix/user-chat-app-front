@@ -1,0 +1,3 @@
+@mixin transition($state,$time) {
+  transition: $state $time ease-in-out;
+}
