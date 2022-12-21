@@ -13,7 +13,7 @@ const Chat = () => {
     useEffect(() => {
         if (!auth?._id) return
         dispatch(fetchUsers(auth?._id))
-    }, [auth?._id])
+    }, [auth?._id, dispatch])
     return (
         <section className={s.root}>
             <SideBar/>

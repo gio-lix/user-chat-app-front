@@ -18,7 +18,7 @@ const AuthProvider = () => {
         } else {
             navigate("/chat")
         }
-    }, [auth, auth?.isAvatarImageSet])
+    }, [auth, auth?.isAvatarImageSet,navigate])
 
 
     return (

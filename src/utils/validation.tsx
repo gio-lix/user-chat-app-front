@@ -2,7 +2,6 @@ import {ILogin, IRegister} from "../types/typing";
 
 
 
-
 export function validation(value: IRegister) {
     const errors: string[] = []
 

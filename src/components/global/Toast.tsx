@@ -13,7 +13,7 @@ const Toast = () => {
             dispatch(toastAction.setToast(null))
         },5000)
         return () => clearTimeout(timer)
-    },[toast])
+    },[toast,dispatch])
 
     return (
         <article className={s.root}>

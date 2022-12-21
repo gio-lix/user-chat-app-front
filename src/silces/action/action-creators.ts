@@ -1,8 +1,9 @@
 import {AnyAction, ThunkAction} from "@reduxjs/toolkit";
 import {RootState} from "../store";
-import axiosClient from "../../api/axiosClient";
-import {useNavigate} from "react-router-dom";
+
 import {authAction} from "../slices/authSlice";
+
+import axiosClient from "../../api/axiosClient";
 
 
 type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, AnyAction>;

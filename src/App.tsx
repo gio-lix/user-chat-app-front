@@ -3,7 +3,6 @@ import {Routes, Route} from "react-router-dom"
 import AuthProvider from "./layout/AuthProvider";
 import Account from "./pages/Account";
 import Chat from "./pages/Chat";
-import {data} from "./data";
 
 function App() {
     return (

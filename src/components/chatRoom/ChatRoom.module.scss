@@ -4,6 +4,13 @@
   background-color: rgb(32, 32, 36);
 
 
+  .user_chat {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
   .no_user {
     position: relative;
     height: 100%;
