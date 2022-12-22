@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const POST = "https://user-app-chat.onrender.com"
+export const POST = "https://user-app-chat.onrender.com"
 // export const POST = "http://localhost:9900"
 
 const axiosClient = axios.create({
