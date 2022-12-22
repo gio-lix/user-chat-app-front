@@ -9,26 +9,29 @@ import SkeletonUsers from "../global/SkeletonLoad";
 
 const SideBar = () => {
     const dispatch = useAppDispatch()
-    const {auth, users,chatToUser} = useAppSelector(state => state)
-    const {users: allUsers,status} = users
+    const {auth} = useAppSelector(state => state.auth)
+    const {user } = useAppSelector(state => state.chatToUser)
+    const {users,status } = useAppSelector(state => state.users)
+
+
 
 
 
     return (
         <div className={s.root}>
             <div className={s.auth_info_box}>
-                <address>{auth?.auth?.email}</address>
+                <address>{auth?.email}</address>
                 <figure className={s.image_box}>
-                    <img src={auth?.auth?.avatarImage} alt="avatar"/>
+                    <img src={auth?.avatarImage} alt="avatar"/>
                 </figure>
             </div>
             <div className={s.auth_info_box}>
                 <figure className={s.image_box}>
-                    {chatToUser.user && (
-                            <img src={chatToUser?.user?.avatarImage} alt="avatar"/>
+                    {user && (
+                            <img src={user?.avatarImage} alt="avatar"/>
                     )}
                 </figure>
-                <address>{chatToUser?.user?.email}</address>
+                <address>{user?.email}</address>
             </div>
 
             <div  className={s.current_users_box}>
@@ -41,7 +44,7 @@ const SideBar = () => {
                         ))
                     ) : (
                         <div>
-                            {allUsers?.map(user => (
+                            {users?.map(user => (
                                 <div
                                     onClick={() => dispatch(currentUser.setCurrentUser(user))}
                                     className={s.user_box} key={user?._id}>

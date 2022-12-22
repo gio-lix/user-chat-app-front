@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 
   button {
     border: none;
@@ -25,6 +25,7 @@
       border-radius: 20px;
     }
   }
+
   .head {
     height: 170px;
     width: 100%;
@@ -32,7 +33,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    > div {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .avatar_back_box {
       height: 50px;
       width: auto;
@@ -48,6 +54,7 @@
       }
     }
     .avatar_info_box {
+
       width: 100%;
       display: flex;
       justify-content: center;
@@ -66,6 +73,7 @@
       margin: 0 auto 10px auto;
     }
     .set_avatar_box {
+
       width: auto;
       height: 50px;
       margin: 0 auto;
@@ -86,6 +94,8 @@
 }
 
 .avatar {
+
+
   min-width: 500px!important;
   width: auto!important;
   height: auto!important;

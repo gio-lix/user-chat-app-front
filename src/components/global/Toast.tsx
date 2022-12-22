@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import s from "../../styles/components/Toast.module.scss"
-import {useAppDispatch, useAppSelector} from "../../silces/store";
+
 import {toastAction} from "../../silces/slices/toastReducer";
+import {useAppDispatch, useAppSelector} from "../../silces/store";
 
 const Toast = () => {
     const dispatch = useAppDispatch()

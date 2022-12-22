@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import { useOutletContext } from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../silces/store";
+import React from 'react';
+import {useOutletContext} from "react-router-dom";
+import {ContextType} from "../types/typing";
+
+import {useAppSelector} from "../silces/store";
+
 import SetAvatar from "../components/setAvatar/Avatar";
 import Login from "../components/account/Login";
 import Register from "../components/account/Register";
-import {ContextType} from "../types/typing";
 
 const Account = () => {
     const [account] = useOutletContext<ContextType>();
@@ -14,10 +16,10 @@ const Account = () => {
         <section>
             {!auth && (
                 <>
-                    {account === "login" ? <Login /> : <Register/>}
+                    {account === "login" ? <Login/> : <Register/>}
                 </>
             )}
-            <SetAvatar />
+            <SetAvatar/>
         </section>
     );
 };

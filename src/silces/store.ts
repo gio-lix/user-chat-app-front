@@ -1,16 +1,20 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
-import authSlice from "./slices/authSlice";
+import authReducer from "./slices/authSlice";
 import toastReducer from "./slices/toastReducer";
-import usersSlice from "./slices/usersSlice";
+import usersReducer from "./slices/usersSlice";
 import currentUserToChatSlice from "./slices/currentUserToChat";
+import messagesReducer from "./slices/messagesSlice";
+import socketReducer from "./slices/socketSlice";
 
 
 const RootReducer = combineReducers({
-    auth: authSlice,
-    users: usersSlice,
+    auth: authReducer,
+    users: usersReducer,
     toast: toastReducer,
     chatToUser: currentUserToChatSlice,
+    messages: messagesReducer,
+    socket: socketReducer
 })
 
 export const store = configureStore({

@@ -20,5 +20,11 @@ export interface UserType {
 
 }
 
+export interface MessageType {
+    from: string
+    to: string
+    message?: string
+}
+
 
 export type ContextType = [account: string, setAccount: Function];

@@ -1,33 +1,53 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import s from "./ChatRoom.module.scss"
-import {useAppSelector} from "../../silces/store";
+
+import {useAppDispatch, useAppSelector} from "../../silces/store";
+import {writeMessageAction} from "../../silces/action/action-creators";
+import {fetchMessages} from "../../silces/slices/messagesSlice";
+
+import ChatMessages from "../chat/ChatMessages";
 import ChatInput from "../chat/ChatInput";
 
 
 const ChatRoom = () => {
-    const {auth, chatToUser} = useAppSelector(state => state);
+    const dispatch = useAppDispatch()
+    const {socket} = useAppSelector((state) => state.socket)
+    const {auth} = useAppSelector((state) => state.auth)
+    const {user} = useAppSelector((state) => state.chatToUser)
 
 
-    const handleSubmit = () => {
 
+    useEffect(() => {
+        dispatch(fetchMessages({ from: auth?._id!, to: user?._id!,}))
+    },[user])
+
+    const handleCallBack = async (value: string) => {
+        dispatch(writeMessageAction({
+            from: auth?._id!,
+            to: user?._id!,
+            message: value
+        },socket))
     }
 
     return (
         <section className={s.root}>
-            {!chatToUser.user ? (
-                <div className={s.no_user}>
-                    <h2>Hello</h2>
-                    <i className="material-icons">
-                        waving_hand
-                    </i>
-                    <p>Welcome, <span>{auth?.auth?.username}</span>  Chat</p>
-                </div>
-            ) : (
-                <div className={s.user_chat}>
-                    <ChatInput handler={handleSubmit} />
-                </div>
-            )}
+            <div>
+                <ChatMessages />
+            </div>
 
+                {!user ? (
+                    <div className={s.no_user}>
+                        <h2>Hello</h2>
+                        <i className="material-icons">
+                            waving_hand
+                        </i>
+                        <p>Welcome, <span>{auth?.username}</span> Chat</p>
+                    </div>
+                ) : (
+                    <div className={s.user_chat}>
+                        <ChatInput callback={handleCallBack}/>
+                    </div>
+                )}
         </section>
     );
 };

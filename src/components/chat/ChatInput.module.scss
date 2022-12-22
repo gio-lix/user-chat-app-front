@@ -84,3 +84,25 @@
     }
   }
 }
+.chat_messages {
+  width: 80%;
+  height: 70vh;
+  overflow-y: auto;
+  margin: 20px auto;
+
+  .msg_content {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 10px;
+
+
+   p {
+     display: inline-block;
+     width: auto;
+     background-color: #5d4855;
+     margin: 2px;
+     padding: 10px 20px;
+     border-radius: 10px;
+   }
+  }
+}

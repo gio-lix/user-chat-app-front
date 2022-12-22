@@ -4,12 +4,19 @@
   padding: 10px;
 
   .auth_info_box {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
     margin-bottom: 10px;
 
+    address {
+      width: 85%;
+      overflow-x: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
     .image_box {
       width: 40px;
       height: 40px;
@@ -26,18 +33,18 @@
 .current_users_box {
   height: 400px;
   overflow: auto;
-  &::-webkit-scrollbar {
-    width: 2px;
-  }
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #a27600;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+  //&::-webkit-scrollbar {
+  //  width: 2px;
+  //}
+  //&::-webkit-scrollbar-track {
+  //  background: #f1f1f1;
+  //}
+  //&::-webkit-scrollbar-thumb {
+  //  background: #a27600;
+  //}
+  //&::-webkit-scrollbar-thumb:hover {
+  //  background: #555;
+  //}
 
   .user_box {
     cursor: pointer;

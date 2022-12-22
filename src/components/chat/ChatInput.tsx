@@ -6,22 +6,33 @@ import s from "./ChatInput.module.scss"
 const Picker = lazy(() => import("emoji-picker-react"))
 
 interface Props {
-    handler?: () => void
+    callback: (value: string) => void
 }
 
-const ChatInput: FC<Props> = ({ handler}) => {
-    const [emojiOpen, setEmojiOpen] = useState(false)
-    const [message, setMessage] = useState("")
+const ChatInput:FC<Props> = ({callback}) => {
+    const [emojiOpen, setEmojiOpen] = useState<boolean>(false)
+    const [message, setMessage] = useState<string>("")
 
 
-    const handleEmojiPicker = (event:any, emoji: any) => {
+    const handleEmojiPicker = (event: any) => {
         let msg = message
         msg += event.emoji
         setMessage(msg)
     }
 
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        if (message.length === 0) return
+
+        callback(message)
+        setMessage("")
+        setEmojiOpen(false)
+
+    }
+
     return (
-        <form className={clsx(s.chat_input)}>
+        <form onSubmit={handleSubmit} className={clsx(s.chat_input)}>
             <textarea
                 onChange={(e) => setMessage(e.target.value)}
                 name="message"
