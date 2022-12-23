@@ -1,4 +1,5 @@
 @import "src/styles/variables";
+@import "src/styles/breakpoint";
 
 .chat_input {
   display: flex;
@@ -71,16 +72,20 @@
   }
 }
 .chat_messages {
-  width: 80%;
-  height: 70vh;
-  margin: 20px auto;
   overflow-y: auto;
+  width: 80%;
+  height: calc(100vh - 110px);
+  margin: 20px auto;
+  padding-top: 50px;
+
+  @include breakpoint-up(large){
+    padding-top: 0;
+  }
 
   .msg_content {
     display: flex;
     flex-direction: column;
     margin: 5px 10px;
-
 
    p {
      display: inline-block;

@@ -24,6 +24,7 @@ const Login = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        console.log("submit")
         const {errLength, errors} = validLogin(user)
         if (!!errLength) {
             return dispatch(toastAction.setToast(errors))

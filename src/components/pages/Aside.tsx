@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import clsx from "clsx";
-import s from "./AsideMenu.module.scss"
+import s from "../../styles/components/AsideMenu.module.scss"
 
 import {useNavigate} from "react-router-dom";
 
