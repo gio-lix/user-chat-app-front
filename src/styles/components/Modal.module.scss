@@ -1,3 +1,5 @@
+@import "src/styles/variables";
+
 .root {
   position: fixed;
   top: 0;
@@ -5,11 +7,11 @@
   width: 100% !important;
   height: 100%;
   background: rgb(28, 30, 25, 0.5);
-  display: flex;
   opacity: 0;
   z-index: -100;
   transition: all 1s ease-in-out;
 
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -18,19 +20,19 @@
     width: 400px;
     height: 300px;
     padding: 20px;
-    background-color: #7361ab;
+    background-color: $bg-purple-400;
     z-index: 110 !important;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     justify-content: space-evenly;
 
 
     .button_box {
-      display: flex;
-      justify-content: space-evenly;
       width: 100%;
       height: auto;
+      display: flex;
+      justify-content: space-evenly;
 
       > button {
         cursor: pointer;
@@ -40,7 +42,7 @@
         text-transform: uppercase;
 
         &:hover {
-          background-color: black;
+          background-color: $bg-black;
           color: wheat;
         }
       }

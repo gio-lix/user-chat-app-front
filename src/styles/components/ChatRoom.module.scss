@@ -1,11 +1,20 @@
+@import "src/styles/variables";
+@import "src/styles/breakpoint";
+
 .root {
-  grid-column-start: 5;
-  grid-column-end: 12;
+  grid-column-start: 1;
+  grid-column-end: -1;
   background-color: rgb(32, 32, 36);
+
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @include breakpoint-up(large) {
+    grid-column-start: 5;
+    grid-column-end: 12;
+  }
 
   .user_chat {
     width: 100%;
@@ -22,13 +31,14 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+
     > h2 {
       transform: translateY(-100px);
       font-size: 2em;
     }
     > i {
       font-size: 60px!important;
-      color: #ffd500;
+      color: $yellow-500;
       animation:  animate 2s ease-in-out infinite;
     }
     > p {
@@ -36,7 +46,7 @@
       bottom: 50px;
       left: 50px;
       span {
-        color:  #ffd500;
+        color:  $yellow-500;
       }
     }
   }

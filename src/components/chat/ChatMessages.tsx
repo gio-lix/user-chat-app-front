@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "./ChatInput.module.scss"
+import s from "../../styles/components/ChatInput.module.scss"
 import {useAppSelector} from "../../silces/store";
 
 const ChatMessages = () => {

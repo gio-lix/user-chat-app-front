@@ -1,24 +1,26 @@
 @import "src/styles/mixins";
+@import "src/styles/variables";
 
 .root {
   position: absolute;
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
 
   z-index: 20;
-  color: white;
+  color: $white;
 
   > p {
+    width: auto;
     margin-bottom: 10px;
     padding: 4px 0 4px 10px;
     min-width: 400px;
-    width: auto;
     font-size: 1em;
-    color: red;
-    letter-spacing: 2px;
     font-weight: 500;
+    letter-spacing: 2px;
+    color: $md-red-500;
 
     @include transition(all, .3s);
     transform: translateY(0);

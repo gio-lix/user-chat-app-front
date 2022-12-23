@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from "./Avatar.module.scss"
+import s from "../../styles/components/Avatar.module.scss"
 
 import {useAppDispatch, useAppSelector} from "../../silces/store";
 import {setAuthAvatar, authAction} from "../../silces/slices/authSlice";

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import s from "./ChatRoom.module.scss"
+import s from "../../styles/components/ChatRoom.module.scss"
 
 import {useAppDispatch, useAppSelector} from "../../silces/store";
 import {writeMessageAction} from "../../silces/action/action-creators";

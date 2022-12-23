@@ -11,6 +11,7 @@ import {data} from "../../data"
 
 import {useAppDispatch} from "../../silces/store";
 import {authLogout} from "../../silces/action/action-creators";
+import {globalAction} from "../../silces/slices/globalSlice";
 
 interface IOpen {
     open_menu: boolean
@@ -59,6 +60,7 @@ const Aside = () => {
             }
         }
         setOpen(Object.fromEntries(obj) as any)
+        dispatch(globalAction.setPeople(false))
     }
 
 
@@ -71,7 +73,7 @@ const Aside = () => {
                 handleFunction={handleLogout}
             />
             <div className={clsx(Object.values(open).includes(true) ? s.open_aside : "")}>
-                <p data-title={(
+                <p className={s.open} data-title={(
                     open.open_menu
                     || open.open_avatar
                     || open.open_about
@@ -80,7 +82,7 @@ const Aside = () => {
                         keyboard_arrow_left
                     </i>
                 </p>
-                <p onClick={() => seCloseModal(true)} data-title="logout">
+                <p className={s.logout} onClick={() => seCloseModal(true)} data-title="logout">
                     <i className="material-icons">
                         logout
                     </i>

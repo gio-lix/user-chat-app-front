@@ -6,6 +6,7 @@ import usersReducer from "./slices/usersSlice";
 import currentUserToChatSlice from "./slices/currentUserToChat";
 import messagesReducer from "./slices/messagesSlice";
 import socketReducer from "./slices/socketSlice";
+import globalReducer from "./slices/globalSlice";
 
 
 const RootReducer = combineReducers({
@@ -14,7 +15,8 @@ const RootReducer = combineReducers({
     toast: toastReducer,
     chatToUser: currentUserToChatSlice,
     messages: messagesReducer,
-    socket: socketReducer
+    socket: socketReducer,
+    global: globalReducer
 })
 
 export const store = configureStore({

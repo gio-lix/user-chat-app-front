@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import s from "./Account.module.scss"
+import s from "../../styles/components/Account.module.scss"
 
 import {ContextType, IRegister} from "../../types/typing";
 import {useOutletContext} from "react-router-dom";

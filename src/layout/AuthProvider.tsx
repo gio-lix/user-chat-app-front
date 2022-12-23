@@ -8,6 +8,7 @@ import SocketClient from "../SocketClient";
 
 import {socketAction} from "../silces/slices/socketSlice";
 import {POST} from "../api/axiosClient";
+import Header from "../components/header/Header";
 
 
 const AuthProvider = () => {
@@ -40,6 +41,7 @@ const AuthProvider = () => {
     return (
         <section className="container " style={{color: "white"}}>
             <SocketClient/>
+            <Header />
             <Outlet context={[account, setAccount]}/>
         </section>
     );

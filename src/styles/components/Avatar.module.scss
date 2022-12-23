@@ -1,7 +1,11 @@
+@import "src/styles/variables";
+@import "src/styles/breakpoint";
+
 .root {
-  width: 400px;
+  width: auto;
   height: auto;
   margin: 30px auto;
+
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -10,16 +14,17 @@
   button {
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
+
     display: block;
+    width: 250px;
     margin: 20px auto;
     padding: 13px 0;
-    background-color: #645ba4;
     color: white;
-    width: 250px;
     letter-spacing: 2px;
     font-size: .8em;
-    text-transform: uppercase;
     transition: all .4s ease;
+    background-color: $bg-purple-400;
 
     &:hover {
       border-radius: 20px;
@@ -33,39 +38,61 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 20vh;
+
+    @include breakpoint-up(medium) {
+      margin-top: 0;
+    }
     > div {
       margin: 0 auto;
+
       display: flex;
       flex-direction: column;
       align-items: center;
     }
     .avatar_back_box {
-      height: 50px;
+
       width: auto;
       display: flex;
       align-items: center;
       margin: 20px auto auto auto;
+      flex-direction: column-reverse;
+      justify-content: center;
 
+      @include breakpoint-up(medium) {
+        flex-direction: row;
+      }
       > i {
         display: inline;
         font-size: 20px!important;
-        color: yellow;
+        color: $yellow-500;
         animation: animateEnter 2s ease-in-out infinite!important;
       }
     }
     .avatar_info_box {
-
       width: 100%;
       display: flex;
+      flex-direction: column-reverse;
       justify-content: center;
       align-items: center;
+
+      @include breakpoint-up(medium) {
+        flex-direction: row;
+      }
+
       h4 {
         text-align: center;
       }
       > i {
-        color: yellow;
-        margin-left: 10px;
+        color: $yellow-500;
+        margin-bottom: 40px;
         animation: animateArrow 2s linear infinite!important;
+
+        @include breakpoint-up(medium) {
+          margin-left: 10px;
+          margin-bottom: 0;
+        }
+
       }
     }
     > img {
@@ -73,16 +100,23 @@
       margin: 0 auto 10px auto;
     }
     .set_avatar_box {
-
       width: auto;
-      height: 50px;
+      height: 100px;
       margin: 0 auto;
       display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
       align-items: center;
+
+      @include breakpoint-up(medium) {
+        flex-direction: row;
+        height: 50px;
+      }
       > i {
+
         display: inline;
         font-size: 20px!important;
-        color: yellow;
+        color: $yellow-500;
         animation: animateEnter 2s ease-in-out infinite!important;
       }
     }
@@ -94,20 +128,26 @@
 }
 
 .avatar {
-
-
-  min-width: 500px!important;
-  width: auto!important;
-  height: auto!important;
   cursor: pointer!important;
+  height: 400px!important;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  overflow-y: auto;
+
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+  @include breakpoint-up(medium) {
+    min-width: 500px!important;
+    width: auto!important;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
 
   img {
     padding: 5px;
     margin: 0 auto;
     &:hover {
-      background: #645ba4!important;
+      background: $bg-purple-400!important;
     }
   }
 }

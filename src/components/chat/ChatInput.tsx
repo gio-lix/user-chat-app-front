@@ -1,7 +1,7 @@
 import React, {FC, lazy, Suspense, useState} from 'react';
 import clsx from "clsx";
 
-import s from "./ChatInput.module.scss"
+import s from "../../styles/components/ChatInput.module.scss"
 
 const Picker = lazy(() => import("emoji-picker-react"))
 

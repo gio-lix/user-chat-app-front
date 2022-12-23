@@ -1,3 +1,5 @@
+@import "src/styles/breakpoint";
+
 .root {
   grid-column-start: 12;
   grid-column-end: -1;
@@ -5,13 +7,18 @@
   > div {
     transition: all .4s ease-in-out;
     position: absolute;
-    top: 0;
+    top: 50px;
     right: 0;
-    width: 100px;
+    width: 2px;
     height: 100%;
     border-left: 2px solid #6c4e01;
     backdrop-filter: blur(10px);
     padding: 10px;
+
+    @include breakpoint-up(large) {
+      width: 100px;
+      top: 0;
+    }
 
     > p {
       position: relative;
@@ -26,8 +33,8 @@
         position: absolute;
         color: white;
         top: 20px;
-        right: -20px;
-        width: auto;
+        right: 0;
+        width: 100%;
         min-width: 130px;
         padding: 13px;
         text-align: center;
@@ -37,7 +44,6 @@
         opacity: 0;
         border-radius: 2px;
         letter-spacing: 2px;
-
       }
 
       &:hover::before {
@@ -55,10 +61,27 @@
       }
     }
   }
+  .logout {
+    display: none;
+    @include breakpoint-up(large) {
+      display: block;
+    }
+  }
+  .open {
+    display: none;
+    @include breakpoint-up(large) {
+      display: block;
+    }
+  }
 }
 
 .open_aside {
-  width: 600px !important;
+  width: calc(100% - 14px)!important;
+
+  @include breakpoint-up(large) {
+    width: 600px !important;
+  }
+
   > p:first-child {
     > i {
       transform: translateX(-25px) rotate(180deg) !important;
@@ -72,33 +95,19 @@
   z-index: 50!important;
   top: 20px;
   left: 120px;
+
   height: 90%;
   width: 90%;
+
   padding: 10px;
   opacity: 0;
   transition: all .2s ease-in-out;
   overflow-y: auto!important;
-
-  &::-webkit-scrollbar {
-    width: 2px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #a27600;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
 }
 
 
 .active_side {
-  transition-delay: .4s ;
+  transition-delay: .4s;
   opacity: 1!important;
   left: 30px!important;
   z-index: 100!important;
