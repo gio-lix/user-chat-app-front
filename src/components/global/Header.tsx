@@ -10,12 +10,12 @@ import {authLogout} from "../../silces/action/action-creators";
 const Header = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
-    const {people} = useAppSelector(state => state.global)
+    const {users_sidebar_show} = useAppSelector(state => state.global)
 
 
     return (
         <div className={s.root}>
-            <p onClick={() => dispatch(globalAction.setPeople(!people))}>
+            <p onClick={() => dispatch(globalAction.setPeople(!users_sidebar_show))}>
                 <i className="material-icons">
                     people_alt
                 </i>

@@ -16,6 +16,8 @@ const Register = () => {
     const dispatch = useAppDispatch()
     const [_,setAccount] = useOutletContext<ContextType>();
     const [user, setUser] = useState({} as IRegister)
+    const [passwordShow, setPasswordShow] = useState<boolean>(false)
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value}= e.target
@@ -58,16 +60,19 @@ const Register = () => {
                 <label  htmlFor="password">
                     <small>Password</small>
                     <input
-                        type="password"
+                        type={passwordShow ? "text" : "password"}
                         name="password"
                         value={user.password || ""}
                         onChange={handleChange}
                     />
+                    <i onClick={() => setPasswordShow(!passwordShow)} className="material-icons">
+                        {passwordShow ? "visibility" : "visibility_off"}
+                    </i>
                 </label>
                 <label  htmlFor="cf_password">
                     <small>Confirm Password</small>
                     <input
-                        type="password"
+                        type={passwordShow ? "text" : "password"}
                         name="cf_password"
                         value={user.cf_password || ""}
                         onChange={handleChange}

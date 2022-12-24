@@ -9,9 +9,10 @@ import ImageOfAvatar from "../setAvatar/ImageOfAvatar";
 import Modal from "../global/Modal";
 import {data} from "../../data"
 
-import {useAppDispatch} from "../../silces/store";
+import {useAppDispatch, useAppSelector} from "../../silces/store";
 import {authLogout} from "../../silces/action/action-creators";
 import {globalAction} from "../../silces/slices/globalSlice";
+import {authAction, setAuthAvatar} from "../../silces/slices/authSlice";
 
 interface IOpen {
     open_menu: boolean
@@ -23,6 +24,8 @@ interface IOpen {
 const Aside = () => {
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
+    const {avatar} = useAppSelector(state => state.auth)
+    const {auth} = useAppSelector(state => state.auth)
 
     const [closeModal, seCloseModal] = useState<boolean>(false)
     const [open, setOpen] = useState<IOpen>({
@@ -61,6 +64,16 @@ const Aside = () => {
         }
         setOpen(Object.fromEntries(obj) as any)
         dispatch(globalAction.setPeople(false))
+        dispatch(authAction.setAvatar(""))
+    }
+
+    const handleUpdateImage = () => {
+        dispatch(setAuthAvatar(
+            {
+                image: avatar,
+                authId: auth?._id
+            }))
+        setOpen({...open, open_avatar: false})
     }
 
 
@@ -87,14 +100,14 @@ const Aside = () => {
                         logout
                     </i>
                 </p>
-                <p  onClick={() => handleOpenCloseBar("open_avatar")}
-                    data-title="avatars">
+                <p onClick={() => handleOpenCloseBar("open_avatar")}
+                   data-title="avatars">
                     <i className="material-icons">
                         mood
                     </i>
                 </p>
                 <p onClick={() => handleOpenCloseBar("open_about")}
-                    data-title="info">
+                   data-title="info">
                     <i className="material-icons">
                         info
                     </i>
@@ -106,8 +119,23 @@ const Aside = () => {
                 </div>
                 <div className={clsx(s.aside_box, open.open_avatar ? s.active_side : null)}>
                     <ImageOfAvatar/>
+                    {avatar ? (
+                        <div className={s.user_avatar}>
+                            <div>
+                                <img src={auth?.avatarImage} alt="user avatar"/>
+                                <p>
+                                    <i className="material-icons">
+                                        west
+                                    </i>
+                                </p>
+                                {avatar && <img src={avatar} alt="user avatar"/>}
+                            </div>
+                            <button onClick={handleUpdateImage}>
+                                update image
+                            </button>
+                        </div>
+                    ) : null}
                 </div>
-
             </div>
         </div>
     );

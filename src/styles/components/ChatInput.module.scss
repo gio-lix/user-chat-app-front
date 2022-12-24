@@ -72,17 +72,20 @@
   }
 }
 .chat_messages {
+
   overflow-y: auto;
   width: 80%;
   height: 70vh;
-  margin: 20px auto;
-  padding-top: 50px;
+  margin: 20px   auto;
+  transform: translateY(59px);
 
   @include breakpoint-up(large){
     padding-top: 0;
+    transform: translateY(0);
   }
 
   .msg_content {
+
     display: flex;
     flex-direction: column;
     margin: 5px 10px;

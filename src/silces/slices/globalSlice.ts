@@ -2,7 +2,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 
 const initialState = {
-    people: false
+    users_sidebar_show: false
 }
 
 type State = typeof initialState
@@ -12,7 +12,7 @@ const globalSlice = createSlice({
     initialState,
     reducers: {
         setPeople: (state:State, action: PayloadAction<any>) => {
-            state.people = action.payload
+            state.users_sidebar_show = action.payload
         }
     }
 })

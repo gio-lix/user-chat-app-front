@@ -14,7 +14,8 @@ import {toastAction} from "../../silces/slices/toastReducer";
 
 const Login = () => {
     const dispatch = useAppDispatch()
-    const [_,setAccount] = useOutletContext<ContextType>();
+    const [_, setAccount] = useOutletContext<ContextType>();
+    const [passwordShow, setPasswordShow] = useState<boolean>(false)
     const [user, setUser] = useState({} as ILogin)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,7 +25,6 @@ const Login = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log("submit")
         const {errLength, errors} = validLogin(user)
         if (!!errLength) {
             return dispatch(toastAction.setToast(errors))
@@ -49,11 +49,14 @@ const Login = () => {
                 <label htmlFor="password">
                     <small>Password</small>
                     <input
-                        type="password"
+                        type={passwordShow ? "text" : "password"}
                         name="password"
                         value={user.password || ""}
                         onChange={handleChange}
                     />
+                    <i onClick={() => setPasswordShow(!passwordShow)} className="material-icons">
+                        {passwordShow ? "visibility" : "visibility_off"}
+                    </i>
                 </label>
                 <p>dont have an account? <span onClick={() => setAccount("register")}>Register</span></p>
             </form>

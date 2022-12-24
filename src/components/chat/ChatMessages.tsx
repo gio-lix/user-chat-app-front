@@ -17,10 +17,10 @@ const ChatMessages = () => {
         <div className={s.chat_messages}>
             {messages?.map((message, index: number) => (
                 <div style={{
-                    alignItems: message.from === auth?._id ? "flex-end" : "flex-start",
+                    alignItems: message?.from === auth?._id ? "flex-end" : "flex-start",
                 }} className={s.msg_content} key={index}>
                     <p  style={{
-                        backgroundColor: message.from === auth?._id ? "#5f4383" : ""
+                        backgroundColor: message?.from === auth?._id ? "#5f4383" : ""
                     }}>{message?.message}</p>
                 </div>
             ))}

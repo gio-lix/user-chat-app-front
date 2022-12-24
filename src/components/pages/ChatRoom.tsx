@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import s from "../../styles/components/ChatRoom.module.scss"
 
-import {useAppDispatch, useAppSelector} from "../../silces/store";
 import {writeMessagesAction} from "../../silces/action/action-creators";
+import {useAppDispatch, useAppSelector} from "../../silces/store";
+import {fetchMessages} from "../../silces/slices/messagesSlice";
 
 import ChatMessages from "../chat/ChatMessages";
 import ChatInput from "../chat/ChatInput";
-import {fetchMessages} from "../../silces/slices/messagesSlice";
 
 
 const ChatRoom = () => {
@@ -19,7 +19,7 @@ const ChatRoom = () => {
 
     useEffect( () => {
         dispatch(fetchMessages({ from: auth?._id!, to: user?._id!,}))
-    },[user])
+    },[user,auth?._id])
 
     const handleCallBack = async (value: string) => {
 

@@ -31,7 +31,6 @@
   }
 
   .auth_info_box {
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,6 +42,7 @@
       overflow-x: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      text-align: center;
     }
     .image_box {
       width: 40px;

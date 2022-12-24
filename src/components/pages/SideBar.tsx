@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import clsx from "clsx";
 
 import s from "../../styles/components/Sidebar.module.scss"
@@ -12,12 +12,12 @@ const SideBar = () => {
     const dispatch = useAppDispatch()
     const {auth} = useAppSelector(state => state.auth)
     const {user} = useAppSelector(state => state.chatToUser)
-    const {people} = useAppSelector(state => state.global)
+    const {users_sidebar_show} = useAppSelector(state => state.global)
     const {users, status} = useAppSelector(state => state.users)
 
 
     return (
-        <div className={clsx(s.root, people ? s.show : null)}>
+        <div className={clsx(s.root, users_sidebar_show ? s.show : null)}>
             <div className={s.auth_info_box}>
                 <address>{auth?.email}</address>
                 <figure className={s.image_box}>
@@ -32,7 +32,6 @@ const SideBar = () => {
                 </figure>
                 <address>{user?.email}</address>
             </div>
-
             <div className={s.current_users_box}>
                 {
                     status === "loading" ? (
@@ -61,4 +60,4 @@ const SideBar = () => {
     );
 };
 
-export default SideBar;
+export default memo(SideBar);
