@@ -22,7 +22,7 @@ export interface UserType {
 
 export interface MessageType {
     from: string
-    to: string
+    to?: string
     message?: string
 }
 

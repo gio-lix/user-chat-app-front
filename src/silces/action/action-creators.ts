@@ -3,7 +3,7 @@ import {RootState} from "../store";
 import {authAction} from "../slices/authSlice";
 
 import axiosClient from "../../api/axiosClient";
-import {fetchMessages} from "../slices/messagesSlice";
+import {messageAction} from "../slices/messagesSlice";
 import {MessageType} from "../../types/typing";
 
 
@@ -27,13 +27,14 @@ export const authLogout = (navigate: any): AppThunk =>
     }
 
 
-    export const writeMessageAction = (data: MessageType,socket: any): AppThunk =>
-        async (dispatch:any) => {
-            try {
-                await axiosClient.post("/api/messages/create", data)
-                dispatch(fetchMessages({ from: data.from, to: data.to}))
-                socket.emit("sendMsg",data)
-            } catch (err: any) {
-                console.log(err)
-            }
+
+export const writeMessagesAction = (data: MessageType,socket: any): AppThunk =>
+    async (dispatch:any) => {
+        dispatch(messageAction.setMessages(data))
+        socket.emit("sendMsg", data)
+        try {
+            await axiosClient.post("/api/messages/create", data)
+        } catch (err: any) {
+            console.log(err)
         }
+    }
