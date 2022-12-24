@@ -7,5 +7,4 @@ const axiosClient = axios.create({
     baseURL: POST
 })
 
-
 export default axiosClient

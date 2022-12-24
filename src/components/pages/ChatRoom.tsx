@@ -19,7 +19,7 @@ const ChatRoom = () => {
 
     useEffect( () => {
         dispatch(fetchMessages({ from: auth?._id!, to: user?._id!,}))
-    },[user,auth?._id])
+    },[user,auth?._id,dispatch])
 
     const handleCallBack = async (value: string) => {
 
