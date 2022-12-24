@@ -1,5 +1,7 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+
 import axiosClient from "../../api/axiosClient";
+
 import {UserType} from "../../types/typing";
 
 
@@ -13,7 +15,7 @@ type State = typeof initialState
 
 export const fetchUsers = createAsyncThunk<UserType[], string>(
     "users/fetchUsers",
-    async (id: string, {dispatch}) => {
+    async (id: string) => {
         try {
             const {data} = await axiosClient.get(`/api/allUsers/${id}`)
             return data
@@ -41,5 +43,4 @@ const usersSlice = createSlice({
 })
 
 
-export const usersAction = usersSlice.actions
 export default usersSlice.reducer

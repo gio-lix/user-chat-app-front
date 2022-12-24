@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import s from "../../styles/components/Avatar.module.scss";
 import {useAppDispatch} from "../../silces/store";
 import {sprites} from "../../utils/global";
@@ -23,4 +23,4 @@ const ImageOfAvatar = () => {
     );
 };
 
-export default ImageOfAvatar;
+export default memo(ImageOfAvatar);

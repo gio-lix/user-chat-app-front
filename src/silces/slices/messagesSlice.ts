@@ -2,7 +2,6 @@ import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import axiosClient from "../../api/axiosClient";
 import {MessageType} from "../../types/typing";
 
-
 interface State {
     status: string
     messages: MessageType[]
@@ -18,7 +17,6 @@ export const fetchMessages = createAsyncThunk<any, MessageType>(
     async (value: MessageType) => {
         try {
             const {data} = await axiosClient.post("/api/messages/getall", value)
-            console.log("data - ",data)
             return data
         } catch (err) {
             return err

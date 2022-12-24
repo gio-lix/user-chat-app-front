@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {memo, useEffect, useRef} from 'react';
 import s from "../../styles/components/ChatInput.module.scss"
 import {useAppSelector} from "../../silces/store";
 
@@ -29,4 +29,4 @@ const ChatMessages = () => {
     );
 };
 
-export default ChatMessages;
+export default memo(ChatMessages);

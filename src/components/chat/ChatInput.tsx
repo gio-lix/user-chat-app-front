@@ -1,4 +1,4 @@
-import React, {FC, lazy, Suspense, useState} from 'react';
+import React, {FC, lazy, memo, Suspense, useState} from 'react';
 import clsx from "clsx";
 
 import s from "../../styles/components/ChatInput.module.scss"
@@ -24,12 +24,11 @@ const ChatInput:FC<Props> = ({callback}) => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (message.length === 0) return
-
         callback(message)
         setMessage("")
         setEmojiOpen(false)
-
     }
+
 
     return (
         <form onSubmit={handleSubmit} className={clsx(s.chat_input)}>
@@ -59,7 +58,7 @@ const ChatInput:FC<Props> = ({callback}) => {
     );
 };
 
-export default ChatInput;
+export default memo(ChatInput);
 
 
 

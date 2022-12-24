@@ -11,8 +11,8 @@ import {data} from "../../data"
 
 import {useAppDispatch, useAppSelector} from "../../silces/store";
 import {authLogout} from "../../silces/action/action-creators";
+import {setAuthAvatar, authAction} from "../../silces/slices/authSlice";
 import {globalAction} from "../../silces/slices/globalSlice";
-import {authAction, setAuthAvatar} from "../../silces/slices/authSlice";
 
 interface IOpen {
     open_menu: boolean

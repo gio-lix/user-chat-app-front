@@ -51,7 +51,7 @@ export const fetchAuthLogin = createAsyncThunk<UserType, ILogin>(
 
 export const setAuthAvatar = createAsyncThunk<UserType, any>(
     "auth/setAuthAvatar",
-    async (value, {dispatch, getState}) => {
+    async (value, {getState}) => {
         try {
             const {data} = await axiosClient.post(`/api/setAvatar/${value.authId}`, value)
             const {auth}: any = getState()
