@@ -22,7 +22,7 @@
     padding: 13px 0;
     color: white;
     letter-spacing: 2px;
-    font-size: .8em;
+    font-size: .8rem;
     transition: all .4s ease;
     background-color: $bg-purple-400;
 
@@ -113,9 +113,8 @@
         height: 50px;
       }
       > i {
-
         display: inline;
-        font-size: 20px!important;
+        font-size: 1.4rem !important;
         color: $yellow-500;
         animation: animateEnter 2s ease-in-out infinite!important;
       }

@@ -30,7 +30,8 @@
     font-weight: 500;
     color: $white-300;
     font-family: Roboto;
-    font-size: 14px;
+    font-size: .9rem;
+    letter-spacing: .1em;
     background-color: transparent;
     transition: all .3s ease;
   }
@@ -39,7 +40,8 @@
     width: 90%;
     margin: 0 auto;
     padding: 13px 7px;
-    font-size: 16px;
+    font-size: 1rem;
+    letter-spacing: .1em;
     color: $white-300;
     background-color: $bg-purple-400;
     transition: width .3s ease-in-out;

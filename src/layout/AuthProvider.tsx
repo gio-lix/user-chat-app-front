@@ -28,7 +28,6 @@ const AuthProvider = () => {
     }, [dispatch])
 
     useEffect(() => {
-
         if (!auth || (auth?.isAvatarImageSet === false)) {
             navigate("/")
             setAccount("login")
