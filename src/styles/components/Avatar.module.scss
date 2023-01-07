@@ -1,4 +1,3 @@
-@import "src/styles/variables";
 @import "src/styles/breakpoint";
 
 .root {
@@ -20,11 +19,11 @@
     width: 250px;
     margin: 20px auto;
     padding: 13px 0;
-    color: white;
+    color: var(--white);
     letter-spacing: 2px;
     font-size: .8rem;
     transition: all .4s ease;
-    background-color: $bg-purple-400;
+    background-color: var(--bg-purple-400);
 
     &:hover {
       border-radius: 20px;
@@ -65,7 +64,7 @@
       > i {
         display: inline;
         font-size: 20px!important;
-        color: $yellow-500;
+        color: var(--yellow-500);
         animation: animateEnter 2s ease-in-out infinite!important;
       }
     }
@@ -84,7 +83,7 @@
         text-align: center;
       }
       > i {
-        color: $yellow-500;
+        color: var(--yellow-500);
         margin-bottom: 40px;
         animation: animateArrow 2s linear infinite!important;
 
@@ -115,7 +114,7 @@
       > i {
         display: inline;
         font-size: 1.4rem !important;
-        color: $yellow-500;
+        color: var(--yellow-500);
         animation: animateEnter 2s ease-in-out infinite!important;
       }
     }
@@ -146,7 +145,7 @@
     padding: 5px;
     margin: 0 auto;
     &:hover {
-      background: $bg-purple-400!important;
+      background: var(--bg-purple-400)!important;
     }
   }
 }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;700&display=swap');
 
-@import "variables";
+
+@import "global";
 @import "mixins";
 @import "breakpoint";
 
@@ -16,15 +17,15 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: $bg-white-100;
+    background: var(--white-100);
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $bg-goldenrod-500;
+    background: var(--yellow-600);
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: $bg-gray-500;
+    background: var(--gray-700);
   }
 }
 
@@ -55,12 +56,12 @@ input {
 
 .inherit {
   all: initial !important;
-  color: $white-500 !important;
+  color: var(--orange-100)!important;
   width: 400px !important;
   padding: 10px !important;
 
   a {
-    color: $lightskyblue-500 !important;
+    color: var(--blue-500)!important;
   }
 
   * {

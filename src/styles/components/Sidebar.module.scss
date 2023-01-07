@@ -1,4 +1,3 @@
-@import "src/styles/variables";
 @import "src/styles/breakpoint";
 
 .show {
@@ -16,7 +15,7 @@
 
   padding: 10px;
   transition: all .4s ease-in-out;
-  background: $bg-black-700;
+  background: var(--black-700);
 
 
   @include breakpoint-up(large) {
@@ -72,7 +71,7 @@
     background-color: rgb(32, 32, 36);
 
     &:hover {
-      background-color: $bg-purple-500;
+      background-color: var(--lightlateblue-800);
     }
     > figure {
       display: block;

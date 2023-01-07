@@ -10,7 +10,7 @@
 
     * {
       font-size: 14px;
-      color: #3dbaff;
+      color: var(--blue-500);
     }
   }
 
@@ -35,7 +35,7 @@
     top: -20px;
     font-weight: 500;
     font-size: 14px;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     color: #e3eed2;
     background-color: transparent;
     transition: all .3s ease;
@@ -48,7 +48,7 @@
     padding: 13px 7px;
     font-size: 16px;
     color: white;
-    background-color: #7361ab;
+    background-color: var(--bg-purple-400);
     transition: width .3s ease-in-out;
 
     &:focus {
@@ -65,8 +65,8 @@
     margin-bottom: 10px;
     border-radius: 2px;
     font-weight: 500;
-    color: white;
-    background-color: #776cc7;
+    color: var(--white);
+    background-color: var(--bg-purple-400);
     opacity: .8;
     @include transition(all, .2s);
 
